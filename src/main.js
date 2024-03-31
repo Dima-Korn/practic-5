@@ -23,3 +23,15 @@ function addTask(input) {
   arr.push(input);
   localStorage.setItem(KEY, JSON.stringify(arr));
 }
+
+// Отримуємо з LS дані для розмітки 
+
+function listMemory() {
+  const arr = JSON.parse(localStorage.getItem(KEY));
+  if (!arr) return;
+
+  const markupData = arr.map(item => `<li>${item}</li>`).join('');
+  listTag.insertAdjacentHTML('beforeend', markupData);
+}
+
+listMemory();
