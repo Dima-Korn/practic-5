@@ -8,5 +8,11 @@ function submitForm(event) {
   console.dir(event.currentTarget.elements.taskName.value);
   const inputValue = event.currentTarget.elements.taskName.value.trim();
   if (!inputValue) return;
-  event.currentTarget.reset();
+  createMurkup(inputValue);
+   event.currentTarget.reset();
+}
+
+function createMurkup(value) {
+  `<li>${value}</li>`;
+  listTag.insertAdjacentHTML( 'beforeend', `<li>${value}</li>`);
 }
