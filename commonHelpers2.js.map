@@ -1,1 +1,1 @@
-{"version":3,"file":"commonHelpers2.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"commonHelpers2.js","sources":["../src/page-2.js"],"sourcesContent":["import { listMemory } from \"./js/list_memory\";\nimport refs from \"./js/refs\";\nimport { KEY } from \"./js/constants\";\nconst { favList } = refs;\n\nlistMemory(favList, KEY);"],"names":["favList","refs","listMemory","KEY"],"mappings":"mEAGA,KAAM,CAAE,QAAAA,CAAS,EAAGC,EAEpBC,EAAWF,EAASG,CAAG"}
