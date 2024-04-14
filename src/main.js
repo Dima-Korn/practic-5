@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid';
-
-const form = document.querySelector('#task-form');
-const listTag = document.querySelector('#task-list');
-const KEY = 'tasks';
+import { getLocalStorage, setLocalStorage } from './js/LS_helpers';
+import { KEY } from './js/constants';
+import refs from './js/refs';
+const { form, listTag } = refs;
 
 listTag.addEventListener('click', removeEl);
 form.addEventListener('submit', submitForm);
@@ -10,9 +10,9 @@ form.addEventListener('submit', submitForm);
 function removeEl(event) {
   if (event.target.nodeName !== 'BUTTON') return;
   const deleteId = event.target.parentNode.id;
-  const data = JSON.parse(localStorage.getItem(KEY));
+  const data = getLocalStorage(KEY);
   const dataFiltered = data.filter(obj => obj.id !== deleteId);
-  localStorage.setItem(KEY, JSON.stringify(dataFiltered));
+  setLocalStorage(KEY, dataFiltered);
   event.target.parentNode.remove();
 }
 
@@ -34,18 +34,18 @@ function createMurkup(value, id) {
 }
 
 function addTask(input) {
-  const arr = JSON.parse(localStorage.getItem(KEY)) || [];
+  const arr = getLocalStorage() || [];
   const id = nanoid();
   console.log(id);
   arr.push({ id, text: input });
-  localStorage.setItem(KEY, JSON.stringify(arr));
+  setLocalStorage(KEY, arr);
   createMurkup(input, id);
 }
 
 // Отримуємо з LS дані для розмітки
 
 function listMemory() {
-  const arr = JSON.parse(localStorage.getItem(KEY));
+  const arr = getLocalStorage(KEY);
   if (!arr) return;
 
   const markupData = arr
