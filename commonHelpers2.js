@@ -1,2 +1,2 @@
-import{l as s,K as r,r as a}from"./assets/list_memory-3bef797a.js";const{favList:o}=a;s(o,r);
+import{l as t,a as e,K as s,r as l}from"./assets/remove_element-8b4f6b2c.js";const{favList:a}=l;t(a,s);e(a,s);
 //# sourceMappingURL=commonHelpers2.js.map
