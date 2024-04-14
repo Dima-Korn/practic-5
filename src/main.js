@@ -3,8 +3,13 @@ import { getLocalStorage, setLocalStorage } from './js/LS_helpers';
 import { KEY } from './js/constants';
 import refs from './js/refs';
 import { listMemory } from './js/list_memory';
-import './js/remove_element'
+import { allListDelete } from './js/remove_element';
 const { form, listTag } = refs;
+
+// Отримуємо з LS дані для розмітки
+
+listMemory(listTag, KEY);
+allListDelete(listTag, KEY);
 
 form.addEventListener('submit', submitForm);
 
@@ -34,6 +39,3 @@ function addTask(input) {
   createMurkup(input, id);
 }
 
-// Отримуємо з LS дані для розмітки
-
-listMemory(listTag, KEY);

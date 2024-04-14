@@ -3,9 +3,10 @@ import { KEY } from "./constants";
 import refs from './refs';
 const { listTag } = refs;
 
-listTag.addEventListener('click', removeEl);
+export function allListDelete (list, KEY) {
+  list.addEventListener('click', removeEl);
 
-function removeEl(event) {
+  function removeEl(event) {
     if (event.target.nodeName !== 'BUTTON') return;
     const deleteId = event.target.parentNode.id;
     const data = getLocalStorage(KEY);
@@ -13,3 +14,5 @@ function removeEl(event) {
     setLocalStorage(KEY, dataFiltered);
     event.target.parentNode.remove();
   }
+}
+
